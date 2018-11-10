@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>My Big Bio</title>
+  <meta name="description" content="Who are you? Create a full autobiography by simply answering questions. As your bio grows, My Big Bio generates a timeline and map of your life.">
+  <meta name="keywords" content="my,big,bio,biography,autobiography,life,questions,interview">
+  <meta name="author" content="David Hartsough">
+  <link rel="canonical" href="https://davidhartsough.com/mybig.bio/s/">
+  <meta property="og:title" content="My Big Bio">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidhartsough.com/mybig.bio/s/">
+  <meta property="og:image" content="https://davidhartsough.com/mybig.bio/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="My Big Bio logo">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:description" content="Who are you? Create a full autobiography by simply answering questions. As your bio grows, My Big Bio generates a timeline and map of your life.">
+  <meta property="og:site_name" content="My Big Bio">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@MyBigBio">
+  <meta name="twitter:creator" content="@David_Hartsough">
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "WebSite",
+      "name": "My Big Bio",
+      "url": "https://davidhartsough.com/mybig.bio/s/",
+      "headline": "My Big Bio",
+      "keywords": "my,big,bio,biography,autobiography,life,questions,interview",
+      "description": "Who are you? Create a full autobiography by simply answering questions. As your bio grows, My Big Bio generates a timeline and map of your life.",
+      "image": "https://davidhartsough.com/mybig.bio/logo.png",
+      "author": {
+        "@type": "Person",
+        "name": "David Hartsough"
+      }
+    }
+  </script>
+  <link rel="manifest" href="../manifest.json">
+  <link rel="author" href="../humans.txt">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="My Big Bio">
+  <meta name="theme-color" content="#46469b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="My Big Bio">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <meta name="msapplication-TileImage" content="../mstile-144x144.png">
+  <meta name="msapplication-TileColor" content="#46469b">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#46469b">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../bundle.css">
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-51999116-8', 'auto');ga('send', 'pageview');</script>
+</head>
+<body>
+  <div data-bind="ifnot: isReady">
+    <div id="home">
+      <div id="wrapper">
+        <div id="logo"><h1 id="title"><span id="title-my">My</span> <span id="title-big">Big</span> <span id="title-bio">Bio</span></h1></div>
+        <div class="progress-container"><div class="progress"><div class="indeterminate"></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div data-bind="if: isReady">
+    <div id="shared" data-bind="if: canView">
+      <div id="navbar"><button id="menu-toggle" data-bind="click: toggleMenu" title="Show navigation menu"><i class="material-icons">&#xE5D2;</i></button><h1 data-bind="text: username"></h1></div>
+      <div id="nav-overlay" data-bind="click: toggleMenu, css: {visible: isMenuOpen}"></div>
+      <nav data-bind="css: {visible: isMenuOpen}">
+        <div id="nav-header">My Big Bio</div>
+        <ul data-bind="foreach: navLinks">
+        <!-- ko if: isPublic --><li><a data-bind="text: title, css: { active: $parent.page() === key }, attr: { href: link }"></a></li><!-- /ko -->
+        </ul>
+      </nav>
+      <div id="main"><div id="page"><h2 id="page-question" data-bind="text: pageTitle"></h2>
+        <div id="content" data-bind="component: page"></div></div>
+      </div>
+      <script type="text/javascript" src="../map/markerclusterer.js"></script>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWDzF5Asjgle2gIUP2XFdAnxMaiFybN_Y&libraries=places" async defer="defer"></script>
+    </div>
+    <div data-bind="ifnot: canView" id="cant-view"><h1>This bio is private.</h1><p>If this is your bio, <a href="../">please log in</a>.</div>
+  </div>
+  <script type="text/javascript" src="./bundle.js"></script>
+</body>
+</html>
